@@ -1,0 +1,82 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+
+  width: 400px;
+
+  position: fixed;
+  left: 20%;
+  top: 20%;
+  z-index: 11;
+
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.overlay {
+  content: '';
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.input {
+  outline: 0;
+  border: 1px solid gainsboro;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.addBtn {
+  outline: 0;
+  border: 0;
+  background-color: rgb(109, 126, 255);
+  border: 1px solid rgb(220, 220, 220);
+  color: white;
+  border-radius: 20px;
+  padding: 10px 30px;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.addBtn:hover {
+  background-color: rgb(87, 101, 207);
+}
+
+.addBtn:active {
+  background-color: #f0f0f0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cancelBtn {
+  outline: 0;
+  border: 0;
+  background: none;
+  border: 1px solid gainsboro;
+  border-radius: 20px;
+  padding: 10px 30px;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.cancelBtn:hover {
+  background-color: #d6d6d6;
+}
+
+.cancelBtn:active {
+  background-color: #f0f0f0;
+}

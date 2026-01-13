@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "johndoe@example.com",
+      "birthDate": "1973-01-22",
+      "phone": "(555) 555-1234",
+      "avatar": "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
+    },
+    {
+      "id": 2,
+      "firstname": "Tom",
+      "lastname": "Doe",
+      "email": "tomdoe@example.com",
+      "birthDate": "1993-01-22",
+      "phone": "(555) 623-3874",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGyogBYaoFIZhcm9Ei2LB4Vb3gczmCpLod4Q&s"
+    }
+  ]
+}
