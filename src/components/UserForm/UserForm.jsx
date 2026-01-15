@@ -2,82 +2,84 @@ import { useState } from 'react';
 import s from './styles.module.css';
 
 export function UserForm({ addUser, setIsOpen }) {
-  const [firstname, setFirstName] = useState('');
-  const [lastname, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [birthDate, setBirthDate] = useState('');
-  const [phone, setPhone] = useState('');
-  const [avatar, setAvatar] = useState('');
+  const [data, setData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    birthDate: '',
+    phone: '',
+    avatar: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    addUser({
-      firstname,
-      lastname: lastname,
-      email: email,
-      birthDate: birthDate,
-      phone: phone,
-      avatar: avatar,
-    });
-
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setBirthDate('');
-    setPhone('');
-    setAvatar('');
+    addUser({});
   };
 
   return (
     <div className={s.overlay}>
       <form onSubmit={handleSubmit} className={s.form}>
         <input
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={handleChange}
           className={s.input}
           type="text"
           placeholder="Enter firstname"
-          value={firstname}
+          value={data.firstname}
+          name="firstname"
           required
         />
         <input
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={handleChange}
           className={s.input}
           type="text"
           placeholder="Enter lastname"
-          value={lastname}
+          value={data.lastname}
+          name="lastname"
           required
         />
         <input
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleChange}
           className={s.input}
           type="text"
           placeholder="Enter email"
-          value={email}
+          value={data.email}
+          name="email"
           required
         />
         <input
-          onChange={(e) => setBirthDate(e.target.value)}
+          onChange={handleChange}
           className={s.input}
           type="text"
           placeholder="Enter birth date"
-          value={birthDate}
+          value={data.birthDate}
+          name="birthDate"
           required
         />
         <input
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={handleChange}
           className={s.input}
           type="text"
           placeholder="Enter phone"
-          value={phone}
+          value={data.phone}
+          name="phone"
           required
         />
         <input
-          onChange={(e) => setAvatar(e.target.value)}
+          onChange={handleChange}
           className={s.input}
           type="text"
           placeholder="Enter URL avatar"
-          value={avatar}
+          value={data.avatar}
+          name="avatar"
           required
         />
         <div className={s.buttons}>

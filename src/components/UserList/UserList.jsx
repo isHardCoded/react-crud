@@ -7,7 +7,7 @@ export function UserList({ users, deleteUser }) {
       {users.length !== 0 ? (
         <ul className={s.list}>
           {users.map((user) => (
-            <li>
+            <li key={user.id}>
               <UserCard user={user} deleteUser={deleteUser} />
             </li>
           ))}
