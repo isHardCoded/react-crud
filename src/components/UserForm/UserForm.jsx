@@ -22,7 +22,7 @@ export function UserForm({ addUser, setIsOpen }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addUser({});
+    addUser(data);
   };
 
   return (
