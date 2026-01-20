@@ -1,13 +1,3 @@
 {
-  "users": [
-    {
-      "id": "02ae",
-      "firstname": "John",
-      "lastname": "Doe",
-      "email": "john@mail.ru",
-      "birthDate": "123",
-      "phone": "123",
-      "avatar": "https://img.freepik.com/premium-photo/memoji-emoji-handsome-smiling-man-white-background_826801-6987.jpg?semt=ais_hybrid&w=740&q=80"
-    }
-  ]
+  "users": []
 }
