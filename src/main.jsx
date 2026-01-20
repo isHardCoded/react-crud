@@ -6,6 +6,7 @@ import { UsersPage } from './pages/UsersPage/UsersPage';
 import { HomePage } from './pages/HomePage/HomePage';
 import { ContactsPage } from './pages/ContactsPage/ContactsPage';
 import { MainLayout } from './layouts/MainLayout';
+import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')).render(
         <Route index element={<HomePage />} />
         <Route path='users' element={<UsersPage />} />
         <Route path='contacts' element={<ContactsPage />}/>
+        <Route path='profile/:userId' element={<ProfilePage />} />
       </Route>
     </Routes>
   </BrowserRouter>

@@ -1,8 +1,13 @@
 import s from './styles.module.css';
+import { useNavigate } from 'react-router';
 
-export function UserCard({ user, deleteUser }) {
+export function UserCard({ user }) {
+  const navigate = useNavigate()
+  
   return (
-    <div className={s.card}>
+    <div onClick={() => {
+      navigate(`/profile/${user.id}`)
+    }} className={s.card}>
       <img className={s.avatar} src={user.avatar} alt="" />
 
       <div className={s.content}>
@@ -17,9 +22,6 @@ export function UserCard({ user, deleteUser }) {
           <p className={s.birth}>{user.birthDate}</p>
           <p className={s.phone}>{user.phone}</p>
         </div>
-        <button onClick={() => deleteUser(user.id)} className={s.button}>
-          Delete
-        </button>
       </div>
     </div>
   );

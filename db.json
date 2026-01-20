@@ -1,3 +1,22 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "9990",
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "john@mail.ru",
+      "birthDate": "1999-01-01",
+      "phone": "18273187",
+      "avatar": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?semt=ais_hybrid&w=740&q=80"
+    },
+    {
+      "id": "bb01",
+      "firstname": "Tom",
+      "lastname": "Doe",
+      "email": "tom@mail.ru",
+      "birthDate": "1999-01-01",
+      "phone": "1982389",
+      "avatar": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671122.jpg"
+    }
+  ]
 }

@@ -6,21 +6,8 @@ export const USER_SERVICE = {
     return await response.json();
   },
 
-  post: async (user) => {
-    const response = await fetch(BASE_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(user),
-    });
-
+  getById: async (id) => {
+    const response = await fetch(`${BASE_URL}/${id}`)
     return await response.json();
-  },
-
-  delete: async (id) => {
-    await fetch(`${BASE_URL}/${id}`, {
-      method: 'DELETE',
-    });
-  },
+  }
 };
