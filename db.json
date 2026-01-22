@@ -88,6 +88,34 @@
       "description": "Настроить миграции и модели для базы данных задач с Prisma",
       "completed": true,
       "userId": "u005"
+    },
+    {
+      "id": "t007",
+      "title": "Создать C++ классы",
+      "description": "Реализовать Singleton и Factory паттерны для управления соединениями БД",
+      "completed": false,
+      "userId": "u003"
+    },
+    {
+      "id": "t008",
+      "title": "Фикс багов в React",
+      "description": "Исправить проблему с re-render при обновлении состояния формы",
+      "completed": true,
+      "userId": "u004"
+    },
+    {
+      "id": "t009",
+      "title": "Документация проекта",
+      "description": "Обновить README с примерами API вызовов и setup инструкциями",
+      "completed": false,
+      "userId": "u002"
+    },
+    {
+      "id": "0641",
+      "title": "Сходить на работу",
+      "description": "111",
+      "completed": false,
+      "userId": "u001"
     }
   ]
 }

@@ -22,9 +22,7 @@ export const TaskCard = ({ task, deleteTask }) => {
           {task.completed ? 'Done' : 'In Progress'}
         </span>
         <button
-          onClick={() => {
-            deleteTask(task.id);
-          }}
+          className={s.tooltipBtn}
         >
           <img src="icons/more.svg" alt="" />
         </button>
