@@ -3,7 +3,7 @@ import { USER_SERVICE } from '../../services/UserService'
 
 import s from './styles.module.css';
 
-export const TaskCard = ({ task }) => {
+export const TaskCard = ({ task, deleteTask }) => {
   const [user, setUser] = useState({})
 
   const getUser = async () => {
@@ -19,7 +19,9 @@ export const TaskCard = ({ task }) => {
     <div className={s.card}>
       <header className={s.header}>
         <span className={task.completed ? s.done : s.inProgress}>{task.completed ? "Done" : "In Progress"}</span>
-        <img src="" alt="" />
+        <button onClick={(() => {deleteTask(task.id)})}>
+          <img src="icons/more.svg" alt="" />
+        </button>
       </header>
 
       <div className={s.content}>

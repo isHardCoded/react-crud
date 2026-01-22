@@ -1,0 +1,46 @@
+.actions {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.search {
+  padding: 14px 20px;
+  font-size: 16px;
+  border: 1px solid gainsboro;
+  border-radius: 12px;
+  outline: none;
+  color: #333;
+  background-color: white;
+  width: 100%;
+}
+
+.search::placeholder {
+  color: #888;
+}
+
+.add {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #157BFF;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.add:hover {
+  background-color: #2e89ff;
+}
+
+.add:active {
+  background-color: #2e89ff;
+  scale: 0.9;
+}

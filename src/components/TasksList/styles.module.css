@@ -1,6 +1,6 @@
 .list {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   list-style: none;
   gap: 20px;
   flex-wrap: wrap;
