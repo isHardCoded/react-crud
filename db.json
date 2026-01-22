@@ -52,70 +52,180 @@
       "title": "Разработать React компонент",
       "description": "Создать reusable компонент для формы авторизации с валидацией email и пароля",
       "completed": false,
-      "userId": "u001"
+      "userId": "u001",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     },
     {
       "id": "t002",
       "title": "Настроить Django API",
       "description": "Добавить endpoints для CRUD операций с задачами, включая JWT аутентификацию",
       "completed": true,
-      "userId": "u002"
+      "userId": "u002",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     },
     {
       "id": "t003",
       "title": "Оптимизировать C# код",
       "description": "Рефакторить console app с использованием Builder паттерна для создания объектов",
       "completed": false,
-      "userId": "u001"
+      "userId": "u001",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     },
     {
       "id": "t004",
       "title": "Стилизация TailwindCSS",
       "description": "Адаптировать dashboard под мобильные устройства с responsive grid",
       "completed": true,
-      "userId": "u004"
+      "userId": "u004",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     },
     {
       "id": "t005",
       "title": "Тестирование Node.js API",
       "description": "Написать unit тесты для Express роутов с использованием Jest",
       "completed": false,
-      "userId": "u003"
+      "userId": "u003",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     },
     {
       "id": "t006",
       "title": "Подключить PostgreSQL",
       "description": "Настроить миграции и модели для базы данных задач с Prisma",
       "completed": true,
-      "userId": "u005"
+      "userId": "u005",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     },
     {
       "id": "t007",
       "title": "Создать C++ классы",
       "description": "Реализовать Singleton и Factory паттерны для управления соединениями БД",
       "completed": false,
-      "userId": "u003"
+      "userId": "u003",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     },
     {
       "id": "t008",
       "title": "Фикс багов в React",
       "description": "Исправить проблему с re-render при обновлении состояния формы",
       "completed": true,
-      "userId": "u004"
+      "userId": "u004",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     },
     {
       "id": "t009",
       "title": "Документация проекта",
       "description": "Обновить README с примерами API вызовов и setup инструкциями",
       "completed": false,
-      "userId": "u002"
+      "userId": "u002",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     },
     {
       "id": "0641",
       "title": "Сходить на работу",
       "description": "111",
       "completed": false,
-      "userId": "u001"
+      "userId": "u001",
+      "assignees": [
+        {
+          "userId": "u001"
+        },
+        {
+          "userId": "u002"
+        },
+        {
+          "userId": "u003"
+        }
+      ]
     }
   ]
 }

@@ -9,6 +9,7 @@ import { ContactsPage } from './pages/ContactsPage/ContactsPage';
 import { MainLayout } from './layouts/MainLayout';
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 import { TasksPage } from './pages/TasksPage/TasksPage';
+import { TaskPage } from './pages/TaskPage/TaskPage';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="users" element={<UsersPage />} />
         <Route path="contacts" element={<ContactsPage />} />
         <Route path="tasks" element={<TasksPage />} />
+        <Route path="task/:taskId" element={<TaskPage />} />
         <Route path="profile/:userId" element={<ProfilePage />} />
       </Route>
     </Routes>

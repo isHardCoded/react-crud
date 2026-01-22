@@ -6,7 +6,7 @@ import s from './styles.module.css';
 export const ProfilePage = () => {
   const [user, setUser] = useState({});
 
-  let { userId } = useParams();
+  const { userId } = useParams();
 
   const getUser = async () => {
     setUser(await USER_SERVICE.getById(userId));
