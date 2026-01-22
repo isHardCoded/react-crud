@@ -1,46 +1,121 @@
 {
   "users": [
     {
-      "id": "9990",
-      "firstname": "John",
-      "lastname": "Doe",
-      "email": "john@mail.ru",
-      "birthDate": "1999-01-01",
-      "phone": "18273187",
+      "id": "u001",
+      "firstname": "Александр",
+      "lastname": "Иванов",
+      "email": "alex.ivanov@mail.ru",
+      "birthDate": "1990-05-15",
+      "phone": "+7-345-123-45-67",
       "avatar": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?semt=ais_hybrid&w=740&q=80"
     },
     {
-      "id": "bb01",
-      "firstname": "Tom",
-      "lastname": "Doe",
-      "email": "tom@mail.ru",
-      "birthDate": "1999-01-01",
-      "phone": "1982389",
-      "avatar": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671122.jpg"
+      "id": "u002",
+      "firstname": "Мария",
+      "lastname": "Петрова",
+      "email": "maria.petrov@mail.ru",
+      "birthDate": "1988-12-22",
+      "phone": "+7-345-987-65-43",
+      "avatar": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671122.jpg?semt=ais_hybrid&w=740&q=80"
+    },
+    {
+      "id": "u003",
+      "firstname": "Дмитрий",
+      "lastname": "Сидоров",
+      "email": "dmitry.sid@mail.ru",
+      "birthDate": "1995-03-10",
+      "phone": "+7-345-234-56-78",
+      "avatar": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671151.jpg?semt=ais_hybrid&w=740&q=80"
+    },
+    {
+      "id": "u004",
+      "firstname": "Елена",
+      "lastname": "Козлова",
+      "email": "elena.kozlova@mail.ru",
+      "birthDate": "1992-07-30",
+      "phone": "+7-345-876-54-32",
+      "avatar": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833562.jpg?semt=ais_hybrid&w=740&q=80"
+    },
+    {
+      "id": "u005",
+      "firstname": "Николай",
+      "lastname": "Морозов",
+      "email": "nikolai.moroz@mail.ru",
+      "birthDate": "1985-11-05",
+      "phone": "+7-345-543-21-09",
+      "avatar": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833572.jpg?semt=ais_hybrid&w=740&q=80"
     }
   ],
-
   "tasks": [
     {
-      "id": "8723",
-      "title": "Test Title Task",
-      "description": "Test Description Task",
+      "id": "t001",
+      "title": "Разработать React компонент",
+      "description": "Создать reusable компонент для формы авторизации с валидацией email и пароля",
       "completed": false,
-      "userId": "bb01"
+      "userId": "u001"
     },
     {
-      "id": "8723",
-      "title": "Test Title Task",
-      "description": "Test Description Task",
-      "completed": false,
-      "userId": "bb01"
+      "id": "t002",
+      "title": "Настроить Django API",
+      "description": "Добавить endpoints для CRUD операций с задачами, включая JWT аутентификацию",
+      "completed": true,
+      "userId": "u002"
     },
     {
-      "id": "8723",
-      "title": "Test Title Task",
-      "description": "Test Description Task",
+      "id": "t003",
+      "title": "Оптимизировать C# код",
+      "description": "Рефакторить console app с использованием Builder паттерна для создания объектов",
       "completed": false,
-      "userId": "bb01"
+      "userId": "u001"
+    },
+    {
+      "id": "t004",
+      "title": "Стилизация TailwindCSS",
+      "description": "Адаптировать dashboard под мобильные устройства с responsive grid",
+      "completed": true,
+      "userId": "u004"
+    },
+    {
+      "id": "t005",
+      "title": "Тестирование Node.js API",
+      "description": "Написать unit тесты для Express роутов с использованием Jest",
+      "completed": false,
+      "userId": "u003"
+    },
+    {
+      "id": "t006",
+      "title": "Подключить PostgreSQL",
+      "description": "Настроить миграции и модели для базы данных задач с Prisma",
+      "completed": true,
+      "userId": "u005"
+    },
+    {
+      "id": "t007",
+      "title": "Создать C++ классы",
+      "description": "Реализовать Singleton и Factory паттерны для управления соединениями БД",
+      "completed": false,
+      "userId": "u003"
+    },
+    {
+      "id": "t008",
+      "title": "Фикс багов в React",
+      "description": "Исправить проблему с re-render при обновлении состояния формы",
+      "completed": true,
+      "userId": "u004"
+    },
+    {
+      "id": "t009",
+      "title": "Документация проекта",
+      "description": "Обновить README с примерами API вызовов и setup инструкциями",
+      "completed": false,
+      "userId": "u002"
+    },
+    {
+      "id": "t010",
+      "title": "Deploy на Vercel",
+      "description": "Настроить CI/CD pipeline для frontend приложения с TailwindCSS",
+      "completed": false,
+      "userId": "u001"
     }
   ]
 }

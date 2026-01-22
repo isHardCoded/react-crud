@@ -1,10 +1,24 @@
+import { useState, useEffect } from 'react';
+import { USER_SERVICE } from '../../services/UserService'
+
 import s from './styles.module.css';
 
 export const TaskCard = ({ task }) => {
+  const [user, setUser] = useState({})
+
+  const getUser = async () => {
+    const id = task.userId
+    setUser(await USER_SERVICE.getById(id))
+  }
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
   return (
     <div className={s.card}>
       <header className={s.header}>
-        <span className={s.status}>Done</span>
+        <span className={task.completed ? s.done : s.inProgress}>{task.completed ? "Done" : "In Progress"}</span>
         <img src="" alt="" />
       </header>
 
@@ -15,7 +29,7 @@ export const TaskCard = ({ task }) => {
 
       <div className={s.details}>
         <p>Author</p>
-        <img src="" alt="" />
+        <img className={s.avatar} src={user.avatar} alt="" />
       </div>
     </div>
   );

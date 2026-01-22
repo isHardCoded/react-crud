@@ -18,12 +18,22 @@
   justify-content: space-between;
 }
 
-.status {
-  background-color: #e9f9ef;
-  color: #136c34;
+.done, .inProgress {
   padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
 
   border-radius: 24px;
+}
+
+.done {
+  background-color: #e9f9ef;
+  color: #136c34;
+}
+
+.inProgress {
+  background-color: #E8F2FF;
+  color: #0C448C;
 }
 
 .content {
@@ -50,4 +60,12 @@
   padding: 8px;
   color: #616874;
   font-size: 14px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+
+  margin-top: 6px;
 }
