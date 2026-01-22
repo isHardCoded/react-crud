@@ -1,4 +1,4 @@
-import { BASE_URL } from '../shared/constants'
+import { BASE_URL } from '../shared/constants';
 
 export const USER_SERVICE = {
   get: async () => {
@@ -7,7 +7,7 @@ export const USER_SERVICE = {
   },
 
   getById: async (id) => {
-    const response = await fetch(`${BASE_URL}/users/${id}`)
+    const response = await fetch(`${BASE_URL}/users/${id}`);
     return await response.json();
-  }
+  },
 };

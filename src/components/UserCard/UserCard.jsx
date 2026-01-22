@@ -2,12 +2,15 @@ import s from './styles.module.css';
 import { useNavigate } from 'react-router';
 
 export function UserCard({ user }) {
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   return (
-    <div onClick={() => {
-      navigate(`/profile/${user.id}`)
-    }} className={s.card}>
+    <div
+      onClick={() => {
+        navigate(`/profile/${user.id}`);
+      }}
+      className={s.card}
+    >
       <img className={s.avatar} src={user.avatar} alt="" />
 
       <div className={s.content}>

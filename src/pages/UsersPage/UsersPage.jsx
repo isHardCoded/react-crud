@@ -16,7 +16,7 @@ export const UsersPage = () => {
 
   return (
     <>
-        <UserList users={users} />
+      <UserList users={users} />
     </>
   );
 };
