@@ -18,7 +18,8 @@
   justify-content: space-between;
 }
 
-.done, .inProgress {
+.done,
+.inProgress {
   padding: 6px 14px;
   font-size: 14px;
   font-weight: 500;
@@ -32,8 +33,8 @@
 }
 
 .inProgress {
-  background-color: #E8F2FF;
-  color: #0C448C;
+  background-color: #e8f2ff;
+  color: #0c448c;
 }
 
 .content {

@@ -24,14 +24,15 @@ export const TaskForm = ({ addTask, setIsOpen }) => {
       title: data.title,
       description: data.description,
       completed: data.completed,
-      userId: data.userId
+      userId: data.userId,
     });
-    setIsOpen(false)
+    setIsOpen(false);
   };
 
-  return <div className={s.overlay}>
-    <form onSubmit={handleSubmit} className={s.form}>
-      <input
+  return (
+    <div className={s.overlay}>
+      <form onSubmit={handleSubmit} className={s.form}>
+        <input
           onChange={handleChange}
           className={s.input}
           type="text"
@@ -39,8 +40,8 @@ export const TaskForm = ({ addTask, setIsOpen }) => {
           value={data.title}
           name="title"
           required
-      />
-      <input
+        />
+        <input
           onChange={handleChange}
           className={s.input}
           type="text"
@@ -48,11 +49,16 @@ export const TaskForm = ({ addTask, setIsOpen }) => {
           value={data.description}
           name="description"
           required
-      />
-      <div className={s.buttons}>
-        <button onClick={() => setIsOpen(false)} className={s.cancel}>Cancel</button>
-        <button type='submit' className={s.add}>Add</button>
-      </div>
-    </form>
-  </div>
-}
+        />
+        <div className={s.buttons}>
+          <button onClick={() => setIsOpen(false)} className={s.cancel}>
+            Cancel
+          </button>
+          <button type="submit" className={s.add}>
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};

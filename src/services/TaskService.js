@@ -15,18 +15,18 @@ export const TASK_SERVICE = {
     const response = await fetch(`${BASE_URL}/tasks`, {
       method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(task)
-    })
+      body: JSON.stringify(task),
+    });
 
-    return await response.json()
+    return await response.json();
   },
 
   update: async () => {},
 
   deleteAll: async () => {},
-  
+
   deleteById: async (id) => {
     await fetch(`${BASE_URL}/tasks/${id}`, {
       method: 'DELETE',
