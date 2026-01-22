@@ -18,5 +18,15 @@
       "phone": "1982389",
       "avatar": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671122.jpg"
     }
+  ],
+
+  "tasks": [
+    {
+      "id": "8723",
+      "title": "Test Title Task",
+      "description": "Test Description Task",
+      "completed": false,
+      "userId": "bb01"
+    }
   ]
 }
