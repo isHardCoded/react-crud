@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, use } from 'react';
+import { USER_SERVICE } from '../../services/UserService';
 import s from './styles.module.css';
 
 export const TaskForm = ({ addTask, setIsOpen }) => {
@@ -8,6 +9,15 @@ export const TaskForm = ({ addTask, setIsOpen }) => {
     completed: false,
     userId: 'u001',
   });
+  const [users, setUsers] = useState([]);
+  
+  const getUsers = async () => {
+    setUsers(await USER_SERVICE.get());
+  };
+  
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,11 +30,20 @@ export const TaskForm = ({ addTask, setIsOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     addTask({
       title: data.title,
       description: data.description,
       completed: data.completed,
       userId: data.userId,
+      assignees: [
+        {
+          userId: "u001"
+        },
+        {
+          userId: "u002"
+        }
+      ]
     });
     setIsOpen(false);
   };
@@ -50,6 +69,10 @@ export const TaskForm = ({ addTask, setIsOpen }) => {
           name="description"
           required
         />
+
+        {/* TODO: Реализовать выбор пользователя */}
+        {/* <select name="" id=""></select> */}
+
         <div className={s.buttons}>
           <button onClick={() => setIsOpen(false)} className={s.cancel}>
             Cancel

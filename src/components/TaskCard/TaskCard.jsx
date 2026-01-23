@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { USER_SERVICE } from '../../services/UserService';
-import { TASK_SERVICE } from '../../services/TaskService';
 import { useNavigate } from 'react-router';
 import { Ellipsis } from 'lucide-react';
 import { X } from 'lucide-react';

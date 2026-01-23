@@ -172,24 +172,6 @@
           "userId": "u003"
         }
       ]
-    },
-    {
-      "id": "t008",
-      "title": "Фикс багов в React",
-      "description": "Исправить проблему с re-render при обновлении состояния формы",
-      "completed": true,
-      "userId": "u004",
-      "assignees": [
-        {
-          "userId": "u001"
-        },
-        {
-          "userId": "u002"
-        },
-        {
-          "userId": "u003"
-        }
-      ]
     }
   ]
 }
