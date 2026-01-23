@@ -22,7 +22,8 @@ export const TasksPage = () => {
     setTasks([...tasks, newTask]);
   };
 
-  const deleteTask = async (id) => {
+  const deleteTask = async (e, id) => {
+    e.stopPropagation()
     await TASK_SERVICE.deleteById(id);
     setTasks(tasks.filter((task) => task.id !== id));
   };

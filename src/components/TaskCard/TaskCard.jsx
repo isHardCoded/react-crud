@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 import { USER_SERVICE } from '../../services/UserService';
+import { TASK_SERVICE } from '../../services/TaskService';
+import { useNavigate } from 'react-router';
+import { Ellipsis } from 'lucide-react';
+import { X } from 'lucide-react';
+import { Pencil } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 
 import s from './styles.module.css';
-import { useNavigate } from 'react-router';
 
-
-
-export const TaskCard = ({ task }) => {
+export const TaskCard = ({ task, deleteTask }) => {
   const [user, setUser] = useState({});
   const [assigneesUsers, setAssigneesUsers] = useState([]);
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,6 +24,8 @@ export const TaskCard = ({ task }) => {
   };
 
   const getAssignees = async () => {
+    if (!assignees) return;
+
     const usersData = await Promise.all(
       assignees.map((assignee) => USER_SERVICE.getById(assignee.userId))
     );
@@ -39,12 +45,34 @@ export const TaskCard = ({ task }) => {
       className={s.card}
     >
       <header className={s.header}>
+
         <span className={task.completed ? s.done : s.inProgress}>
           {task.completed ? 'Done' : 'In Progress'}
         </span>
-        <button className={s.tooltipBtn}>
-          <img src="icons/more.svg" alt="" />
+
+        <button className={s.tooltipBtn} onClick={(e) => {
+          e.stopPropagation();
+          setIsTooltipOpen(!isTooltipOpen)
+        }}>
+          {isTooltipOpen ? <X color='#848484' /> : <Ellipsis color='#848484' />}
         </button>
+
+        {isTooltipOpen && (
+          <div className={s.tooltip}>
+            <button className={s.editBtn}>
+              <Pencil color='#848484' size={20} />
+              Edit
+            </button>
+            <button onClick={(e) => {
+                deleteTask(e, task.id)
+                setIsTooltipOpen(false);
+              }} className={s.deleteBtn}>
+              <Trash2 color='#848484' size={20} />
+                Delete
+              </button>
+          </div>
+        )}
+
       </header>
 
       <div className={s.content}>
@@ -55,10 +83,12 @@ export const TaskCard = ({ task }) => {
       <div className={s.details}>
         <div className={s.author}>
           <p>Author</p>
-          <img className={s.avatar} src={user.avatar} alt="" />
+          <img className={s.avatar} src={user.avatar} alt={`${user.firstname} ${user.lastname}`}
+                title={`${user.firstname} ${user.lastname}`} />
         </div>
 
-        <div className={s.assignees}>
+        {assigneesUsers.length > 0 && (
+          <div className={s.assignees}>
           <p>Assignees</p>
           <div className={s.avatarsList}>
             {assigneesUsers.map((assigneeUser) => (
@@ -72,6 +102,7 @@ export const TaskCard = ({ task }) => {
             ))}
           </div>
         </div>
+        )}
       </div>
 
     </div>

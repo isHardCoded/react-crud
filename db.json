@@ -190,42 +190,6 @@
           "userId": "u003"
         }
       ]
-    },
-    {
-      "id": "t009",
-      "title": "Документация проекта",
-      "description": "Обновить README с примерами API вызовов и setup инструкциями",
-      "completed": false,
-      "userId": "u002",
-      "assignees": [
-        {
-          "userId": "u001"
-        },
-        {
-          "userId": "u002"
-        },
-        {
-          "userId": "u003"
-        }
-      ]
-    },
-    {
-      "id": "0641",
-      "title": "Сходить на работу",
-      "description": "111",
-      "completed": false,
-      "userId": "u001",
-      "assignees": [
-        {
-          "userId": "u001"
-        },
-        {
-          "userId": "u002"
-        },
-        {
-          "userId": "u003"
-        }
-      ]
     }
   ]
 }
