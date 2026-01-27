@@ -10,6 +10,8 @@ import { MainLayout } from './layouts/MainLayout';
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 import { TasksPage } from './pages/TasksPage/TasksPage';
 import { TaskPage } from './pages/TaskPage/TaskPage';
+import { RegisterPage } from './pages/RegisterPage/RegisterPage';
+import { LoginPage } from './pages/LoginPage/LoginPage';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -18,9 +20,13 @@ createRoot(document.getElementById('root')).render(
         <Route index element={<HomePage />} />
         <Route path="users" element={<UsersPage />} />
         <Route path="contacts" element={<ContactsPage />} />
+        <Route path="profile/:userId" element={<ProfilePage />} />
+
         <Route path="tasks" element={<TasksPage />} />
         <Route path="task/:taskId" element={<TaskPage />} />
-        <Route path="profile/:userId" element={<ProfilePage />} />
+
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
       </Route>
     </Routes>
   </BrowserRouter>
