@@ -1,21 +1,30 @@
 import { BASE_URL } from '../shared/constants';
 
 export const TASK_SERVICE = {
-  getAll: async () => {
-    const response = await fetch(`${BASE_URL}/tasks`);
+  getAll: async (token) => {
+    const response = await fetch(`${BASE_URL}/tasks`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
     return await response.json();
   },
 
-  getById: async (id) => {
-    const response = await fetch(`${BASE_URL}/tasks/${id}`);
+  getById: async (id, token) => {
+    const response = await fetch(`${BASE_URL}/tasks/${id}`, {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    });
     return await response.json();
   },
 
-  create: async (task) => {
+  create: async (task, token) => {
     const response = await fetch(`${BASE_URL}/tasks`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        "Authorization": `Bearer ${token}`,
       },
       body: JSON.stringify(task),
     });
@@ -27,9 +36,13 @@ export const TASK_SERVICE = {
 
   deleteAll: async () => {},
 
-  deleteById: async (id) => {
+  deleteById: async (id, token) => {
+    console.log(token)
     await fetch(`${BASE_URL}/tasks/${id}`, {
       method: 'DELETE',
+      headers: { 
+        "Authorization": `Bearer ${token}`,
+      },
     });
   },
 };

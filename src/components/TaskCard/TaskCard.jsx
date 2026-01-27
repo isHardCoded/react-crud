@@ -7,34 +7,36 @@ import { Pencil } from 'lucide-react';
 import { Trash2 } from 'lucide-react';
 
 import s from './styles.module.css';
+import { useAuth } from '../../context/AuthContext';
 
 export const TaskCard = ({ task, deleteTask }) => {
-  const [user, setUser] = useState({});
-  const [assigneesUsers, setAssigneesUsers] = useState([]);
+  // const [user, setUser] = useState({});
+  // const [assigneesUsers, setAssigneesUsers] = useState([]);
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   const navigate = useNavigate();
+  const { token } = useAuth()
 
-  const { assignees } = task
+  // const { assignees } = task
 
-  const getUser = async () => {
-    const id = task.userId;
-    setUser(await USER_SERVICE.getById(id));
-  };
+  // const getUser = async () => {
+  //   const id = task.userId;
+  //   setUser(await USER_SERVICE.getById(id));
+  // };
 
-  const getAssignees = async () => {
-    if (!assignees) return;
+  // const getAssignees = async () => {
+  //   if (!assignees) return;
 
-    const usersData = await Promise.all(
-      assignees.map((assignee) => USER_SERVICE.getById(assignee.userId))
-    );
-    setAssigneesUsers(usersData);
-  };
+  //   const usersData = await Promise.all(
+  //     assignees.map((assignee) => USER_SERVICE.getById(assignee.userId))
+  //   );
+  //   setAssigneesUsers(usersData);
+  // };
 
-  useEffect(() => {
-    getUser();
-    getAssignees();
-  }, []);
+  // useEffect(() => {
+  //   getUser();
+  //   getAssignees();
+  // }, []);
 
   return (
     <div
@@ -63,7 +65,7 @@ export const TaskCard = ({ task, deleteTask }) => {
               Edit
             </button>
             <button onClick={(e) => {
-                deleteTask(e, task.id)
+                deleteTask(e, task.id, token)
                 setIsTooltipOpen(false);
               }} className={s.deleteBtn}>
               <Trash2 color='#848484' size={20} />
@@ -82,11 +84,11 @@ export const TaskCard = ({ task, deleteTask }) => {
       <div className={s.details}>
         <div className={s.author}>
           <p>Author</p>
-          <img className={s.avatar} src={user.avatar} alt={`${user.firstname} ${user.lastname}`}
-                title={`${user.firstname} ${user.lastname}`} />
+          {/* <img className={s.avatar} src={user.avatar} alt={`${user.firstname} ${user.lastname}`}
+                title={`${user.firstname} ${user.lastname}`} /> */}
         </div>
 
-        {assigneesUsers.length > 0 && (
+        {/* {assigneesUsers.length > 0 && (
           <div className={s.assignees}>
           <p>Assignees</p>
           <div className={s.avatarsList}>
@@ -101,7 +103,7 @@ export const TaskCard = ({ task, deleteTask }) => {
             ))}
           </div>
         </div>
-        )}
+        )} */}
       </div>
 
     </div>

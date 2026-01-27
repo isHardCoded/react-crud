@@ -4,13 +4,17 @@ import { TASK_SERVICE } from '../../services/TaskService';
 
 import s from './styles.module.css';
 import { TaskForm } from '../../components/TaskForm/TaskForm';
+import { useAuth } from '../../context/AuthContext';
 
 export const TasksPage = () => {
   const [tasks, setTasks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
+  const { token } = useAuth()
+
   const getTasks = async () => {
-    setTasks(await TASK_SERVICE.getAll());
+    const result = await TASK_SERVICE.getAll(token);
+    setTasks(result.data);
   };
 
   useEffect(() => {
@@ -22,9 +26,9 @@ export const TasksPage = () => {
     setTasks([...tasks, newTask]);
   };
 
-  const deleteTask = async (e, id) => {
+  const deleteTask = async (e, id, token) => {
     e.stopPropagation()
-    await TASK_SERVICE.deleteById(id);
+    await TASK_SERVICE.deleteById(id, token);
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
