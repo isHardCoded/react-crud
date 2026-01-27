@@ -3,6 +3,7 @@ import { authService } from '../../services/AuthService'
 import s from './styles.module.css'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router'
+import { useAuth } from '../../context/AuthContext'
 
 export const RegisterPage = () => {
   const [data, setData] = useState({
@@ -10,7 +11,9 @@ export const RegisterPage = () => {
     email: "",
     password: ""
   })
+  const [error, setError] = useState('')
 
+  const { register, loading } = useAuth()
   const navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -24,7 +27,16 @@ export const RegisterPage = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await authService.register(data)
+    setError('')
+  
+    const result = await register(data)
+
+    if (!result.success) {
+      setError(result.error)
+    }
+
+    console.log(result)
+
     navigate('/login')
   }
   
@@ -60,10 +72,14 @@ export const RegisterPage = () => {
           required
         />
 
-        <button className={s.button}>Sign Up</button>
+        <button type="submit" className={s.button} disabled={loading}>
+          {loading ? 'Wait...' : 'Sign Up'}
+        </button>
         <Link to={'/login'} className={s.link}>
           Have an account?
         </Link>
+
+        {error && <p>{error}</p>}
       </form>
     </>
   );

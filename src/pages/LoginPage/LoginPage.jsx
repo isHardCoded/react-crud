@@ -2,12 +2,18 @@ import { useState } from 'react'
 import { authService } from '../../services/AuthService'
 import s from './styles.module.css'
 import { Link } from 'react-router'
+import { useAuth } from '../../context/AuthContext'
+import { useNavigate } from 'react-router'
 
 export const LoginPage = () => {
   const [data, setData] = useState({
     username: "",
     password: ""
   })
+  const [error, setError] = useState('')
+
+  const { login, loading } = useAuth()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,8 +26,14 @@ export const LoginPage = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await authService.login(data);
-    console.log(response)
+    setError('')
+    const result = await login(data)
+
+    if (!result.success) {
+      setError(result.error)
+    }
+    
+    navigate('/profile')
   }
   
   return (
@@ -47,10 +59,13 @@ export const LoginPage = () => {
                 required
               />
       
-              <button className={s.button}>Sign Up</button>
+              <button type='submit' className={s.button} disabled={loading}>
+                {loading ? 'Wait...' : 'Login'}
+              </button>
               <Link to={'/register'} className={s.link}>
                 Create account
               </Link>
+              {error && <p>{error}</p>}
             </form>
     </>
   );

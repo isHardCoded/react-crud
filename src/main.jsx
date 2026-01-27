@@ -12,22 +12,25 @@ import { TasksPage } from './pages/TasksPage/TasksPage';
 import { TaskPage } from './pages/TaskPage/TaskPage';
 import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
+import { AuthProvider } from './context/AuthContext';
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="users" element={<UsersPage />} />
-        <Route path="contacts" element={<ContactsPage />} />
-        <Route path="profile/:userId" element={<ProfilePage />} />
+  <AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="users" element={<UsersPage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="profile/:userId" element={<ProfilePage />} />
 
-        <Route path="tasks" element={<TasksPage />} />
-        <Route path="task/:taskId" element={<TaskPage />} />
+          <Route path="tasks" element={<TasksPage />} />
+          <Route path="task/:taskId" element={<TaskPage />} />
 
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </AuthProvider>
 );
