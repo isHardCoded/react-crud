@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { authService } from '../../services/AuthService'
 import s from './styles.module.css'
+import { Link } from 'react-router'
 
 export const LoginPage = () => {
   const [data, setData] = useState({
@@ -25,34 +26,32 @@ export const LoginPage = () => {
   
   return (
     <>
-      <h2>Login</h2>
-
-      <form
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          maxWidth: 300,
-          gap: 15,
-        }}
-        onSubmit={handleSubmit}
-      >
-        <input
-          onChange={handleChange}
-          value={data.username}
-          name="username"
-          type="text"
-          placeholder="Enter username"
-        />
-        <input
-          onChange={handleChange}
-          value={data.password}
-          name="password"
-          type="password"
-          placeholder="Enter password"
-        />
-
-        <button>Sign In</button>
-      </form>
+      <form className={s.form} onSubmit={handleSubmit}>
+              <h2 className={s.title}>Welcome back!</h2>
+              <input
+                className={s.input}
+                onChange={handleChange}
+                value={data.username}
+                name="username"
+                type="text"
+                placeholder="Enter username"
+                required
+              />
+              <input
+                className={s.input}
+                onChange={handleChange}
+                value={data.password}
+                name="password"
+                type="password"
+                placeholder="Enter password"
+                required
+              />
+      
+              <button className={s.button}>Sign Up</button>
+              <Link to={'/register'} className={s.link}>
+                Create account
+              </Link>
+            </form>
     </>
   );
 }
