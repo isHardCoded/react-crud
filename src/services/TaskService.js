@@ -37,7 +37,6 @@ export const TASK_SERVICE = {
   deleteAll: async () => {},
 
   deleteById: async (id, token) => {
-    console.log(token)
     await fetch(`${BASE_URL}/tasks/${id}`, {
       method: 'DELETE',
       headers: { 

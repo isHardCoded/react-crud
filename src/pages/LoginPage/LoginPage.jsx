@@ -27,13 +27,13 @@ export const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
-    const result = await login(data)
+    const { success, user } = await login(data)
 
-    if (!result.success) {
-      setError(result.error)
+    if (!success) {
+      setError(error)
     }
     
-    navigate('/')
+    navigate(`/profile/${user.id}`)
   }
   
   return (

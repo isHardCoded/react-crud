@@ -1,20 +1,15 @@
 import { NavLink } from 'react-router';
 import s from './styles.module.css';
+import { useAuth } from '../../context/AuthContext';
 
 export const Header = () => {
+  const { user } = useAuth()
+  
   return (
     <header className={s.root}>
       <h2 className={s.logo}>My App</h2>
       <nav>
         <ul className={s.nav}>
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? s.active : s.link)}
-            >
-              Home
-            </NavLink>
-          </li>
           <li>
             <NavLink
               to="/users"
@@ -32,15 +27,7 @@ export const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/contacts"
-              className={({ isActive }) => (isActive ? s.active : s.link)}
-            >
-              Contacts
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/profile" className={s.link}>
+            <NavLink to={`/profile/${user.id}`} className={s.link}>
               Profile
             </NavLink>
           </li>

@@ -1,24 +1,29 @@
 import { useState, useEffect, use } from 'react';
 import { USER_SERVICE } from '../../services/UserService';
 import s from './styles.module.css';
+import { useAuth } from '../../context/AuthContext';
 
 export const TaskForm = ({ addTask, setIsOpen }) => {
+  const { token, user } = useAuth()
+  
   const [data, setData] = useState({
     title: '',
     description: '',
     completed: false,
-    userId: 'u001',
+    userId: user.id,
   });
   const [users, setUsers] = useState([]);
-  
+
   const getUsers = async () => {
-    setUsers(await USER_SERVICE.get());
+    const result = await USER_SERVICE.get(token)
+    
+    const { data } = result
+    setUsers(data);
   };
   
   useEffect(() => {
     getUsers();
   }, []);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -38,10 +43,10 @@ export const TaskForm = ({ addTask, setIsOpen }) => {
       userId: data.userId,
       assignees: [
         {
-          userId: "u001"
+          userId: "1"
         },
         {
-          userId: "u002"
+          userId: "2"
         }
       ]
     });

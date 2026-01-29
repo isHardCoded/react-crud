@@ -9,7 +9,9 @@ export const RegisterPage = () => {
   const [data, setData] = useState({
     username: "",
     email: "",
-    password: ""
+    password: "",
+    birthDate: "",
+    phone: ""
   })
   const [error, setError] = useState('')
 
@@ -33,6 +35,7 @@ export const RegisterPage = () => {
 
     if (!result.success) {
       setError(result.error)
+      return
     }
 
     console.log(result)
@@ -69,6 +72,23 @@ export const RegisterPage = () => {
           name="password"
           type="password"
           placeholder="Enter password"
+          required
+        />
+        <input
+          className={s.input}
+          onChange={handleChange}
+          value={data.birthDate}
+          name="birthDate"
+          type='date'
+          required
+        />
+        <input
+          className={s.input}
+          onChange={handleChange}
+          value={data.phone}
+          name="phone"
+          type="number"
+          placeholder="Enter phone"
           required
         />
 

@@ -11,11 +11,11 @@ export function UserCard({ user }) {
       }}
       className={s.card}
     >
-      <img className={s.avatar} src={user.avatar} alt="" />
+      <img className={s.avatar} src={user.avatar ? user.avatar : 'https://www.gravatar.com/avatar/f1e046006b604d6684b212b2ef266d5ede9d86d597cdefc00fa622176bd335f0?default=retro&size=256'} alt="" />
 
       <div className={s.content}>
         <p className={s.name}>
-          {user.firstname} {user.lastname}
+          {user.username}
         </p>
         <p className={s.email}>{user.email}</p>
       </div>

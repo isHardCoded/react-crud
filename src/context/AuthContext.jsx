@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
       const data = await authService.login(userData)
       setToken(data.token)
       setUser(data.user)
-      return { success: true }
+      return { success: true, user: data.user }
     } catch(error) {
       return { success: false, error: error.message }
     } finally {

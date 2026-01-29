@@ -2,31 +2,34 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { USER_SERVICE } from '../../services/UserService';
 import s from './styles.module.css';
+import { useAuth } from '../../context/AuthContext';
 
 export const ProfilePage = () => {
   const [user, setUser] = useState({});
 
-  const { userId } = useParams();
+  const { userId } = useParams()
+  const { token } = useAuth();
 
   const getUser = async () => {
-    setUser(await USER_SERVICE.getById(userId));
+    const result = await USER_SERVICE.getById(userId, token)
+
+    const { data } = result
+    setUser(data);
   };
 
   useEffect(() => {
     getUser();
   }, []);
 
-  console.log(user);
-
   return (
     <>
       <div className={s.card}>
-        <img className={s.avatar} src={user.avatar} alt="" />
+        <img className={s.avatar} src={user.avatar ? user.avatar : 'https://www.gravatar.com/avatar/f1e046006b604d6684b212b2ef266d5ede9d86d597cdefc00fa622176bd335f0?default=retro&size=256'} alt="" />
 
         <div>
           <div className={s.content}>
             <p className={s.name}>
-              {user.firstname} {user.lastname}
+              {user.username}
             </p>
             <p className={s.email}>{user.email}</p>
           </div>

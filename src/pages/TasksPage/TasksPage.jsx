@@ -17,13 +17,11 @@ export const TasksPage = () => {
     setTasks(result.data);
   };
 
-  useEffect(() => {
-    getTasks();
-  }, []);
-
   const addTask = async (task) => {
-    const newTask = await TASK_SERVICE.create(task);
-    setTasks([...tasks, newTask]);
+    const result = await TASK_SERVICE.create(task, token);
+  
+    const { data } = result
+    setTasks([...tasks, data]);
   };
 
   const deleteTask = async (e, id, token) => {
@@ -31,6 +29,10 @@ export const TasksPage = () => {
     await TASK_SERVICE.deleteById(id, token);
     setTasks(tasks.filter((task) => task.id !== id));
   };
+
+  useEffect(() => {
+    getTasks();
+  }, []);
 
   return (
     <div className={s.root}>
