@@ -4,7 +4,17 @@ import { authService } from "../services/AuthService";
 const AuthContext = createContext(null)
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user')
+    if (!savedUser) return null
+
+    try {
+      return JSON.parse(savedUser)
+    } catch (error) {
+      localStorage.removeItem('user')
+      return null
+    }
+  });
   const [token, setToken] = useState(localStorage.getItem('token'))
   const [loading, setLoading] = useState(false)
 
@@ -16,11 +26,19 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token])
 
-  const register = async (user) => {
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user))
+    } else {
+      localStorage.removeItem('user')
+    }
+  }, [user])
+
+  const register = async (userData) => {
     setLoading(true)
 
     try {
-      await authService.register(user)
+      await authService.register(userData)
       return { success: true }
     } catch(error) {
       return { success: false, error: error.message }
@@ -29,13 +47,13 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
-  const login = async (user) => {
+  const login = async (userData) => {
     setLoading(true)
 
     try {
-      const data = await authService.login(user)
+      const data = await authService.login(userData)
       setToken(data.token)
-      setUser(data.user.username)
+      setUser(data.user)
       return { success: true }
     } catch(error) {
       return { success: false, error: error.message }

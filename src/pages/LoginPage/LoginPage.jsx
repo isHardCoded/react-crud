@@ -33,7 +33,7 @@ export const LoginPage = () => {
       setError(result.error)
     }
     
-    navigate('/profile')
+    navigate('/')
   }
   
   return (
